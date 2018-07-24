@@ -1,0 +1,11 @@
+// TODO add to variables.scss
+$colors: (0: #fea3aa, 1: #f8b88b, 2: #faf884, 3: #baed91, 4: #b2cefe, 5: #f2a2e8);
+
+// Creates a new class for each colour to give the colour picker options a representative background colour
+.colourPicker {
+    @each $ke, $val in $colors {
+        button[id^="alert-input-"][id$="-#{$ke}"] {
+            background: #{$val} !important;
+        }
+    }
+}

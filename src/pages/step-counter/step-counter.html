@@ -1,0 +1,24 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title>
+            Step Counter
+        </ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+    <ion-card>
+        <ion-item>
+            <ion-icon name="walk" item-start large></ion-icon>
+            <h2>Step Count</h2>
+            <p>{{steps}}</p>
+        </ion-item>
+        <ion-item>
+            <ion-icon name="trophy" item-left large></ion-icon>
+            <h2>Progress Towards Goal</h2>
+            <p>Goal: {{goal}} Steps / {{percentage.toFixed(1)}} %</p>
+            <!--<p>{{data | json}}</p>-->
+            <img class="sprite" [src]="spriteSource">
+        </ion-item>
+    </ion-card>
+</ion-content>

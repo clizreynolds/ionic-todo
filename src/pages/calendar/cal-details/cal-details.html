@@ -1,0 +1,46 @@
+<ion-header>
+    <ion-navbar color="primary">
+        <ion-title>Upcoming Events</ion-title>
+    </ion-navbar>
+</ion-header>
+<ion-content>
+    <ion-card *ngFor="let ev of events">
+        <ion-card-header>
+            {{ ev.title }}
+        </ion-card-header>
+        <ion-card-content no-padding>
+            <ion-list no-lines>
+                <ion-item>
+                    <ion-label *ngIf="ev.allDay === 0">
+                        Start Time:
+                    </ion-label>
+                    <ion-label *ngIf="ev.allDay === 1">
+                        All day:
+                    </ion-label>
+                    <div *ngIf="ev.allDay === 1" item-content>
+                        {{ toDate(ev.dtstart) | date:'E LLL d' }}
+                    </div>
+                    <div *ngIf="ev.allDay === 0" item-content>
+                        {{ toDate(ev.dtstart) | date:'E LLL d H:m' }}
+                    </div>
+                </ion-item>
+                <ion-item *ngIf="ev.allDay === 0">
+                    <ion-label>
+                        End Time:
+                    </ion-label>
+                    <div item-content>
+                        {{ toDate(ev.dtend) | date:'E LLL d HH:mm' }}
+                    </div>
+                </ion-item>
+                <ion-item *ngIf="ev.eventLocation">
+                    <ion-label>
+                        Location:
+                    </ion-label>
+                    <div item-content>
+                        {{ ev.eventLocation }}
+                    </div>
+                </ion-item>
+            </ion-list>
+        </ion-card-content>
+    </ion-card>
+</ion-content>

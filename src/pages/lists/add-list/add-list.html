@@ -1,0 +1,31 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title>
+            Add a new list
+        </ion-title>
+    </ion-navbar>
+</ion-header>
+<ion-content>
+    <form [formGroup]="newList">
+        <ion-item>
+            <ion-label floating>List title</ion-label>
+            <ion-input formControlName="title"></ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-label floating>List colour</ion-label>
+            <ion-select [selectOptions]="colourPickerOptions" formControlName="colour">
+                <ion-option *ngFor="let c of colours" [value]="c.code">
+                    {{c.name}}
+                </ion-option>
+            </ion-select>
+        </ion-item>
+        <ion-row padding>
+            <ion-col align-self-start>
+                <button ion-button color="danger" (click)="closeModal()" full>Close</button>
+            </ion-col>
+            <ion-col align-self-end>
+                <button ion-button color="secondary" full (click)="saveList()" [disabled]="!newList.valid">Save list</button>
+            </ion-col>
+        </ion-row>
+    </form>
+</ion-content>

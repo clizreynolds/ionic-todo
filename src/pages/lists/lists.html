@@ -1,0 +1,24 @@
+<ion-header>
+    <ion-navbar color="primary">
+        <ion-title class="mid-title">
+            Todo Lists
+            <ion-icon class="add-list" name="add-circle" (click)="addButtonTapped()"></ion-icon>
+        </ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content>
+    <ion-list reorder="true" (ionItemReorder)="reorderItems($event)">
+        <ion-item-sliding *ngFor="let item of lists" [class.removed]="item.removed" class="present" [@listVisibility]="visibleState">
+            <ion-item ion-item (click)="itemTapped($event, item)" [color]="item.colour" no-lines class="brdr-btm" [class.done]="allDone(item.items)">
+                <ion-icon [name]="item.icon" item-start></ion-icon>
+                {{item.title}}
+                <ion-badge color="secondary" item-end>{{item.items.length}}</ion-badge>
+            </ion-item>
+
+            <ion-item-options side="right">
+                <button ion-button color="danger" (click)="removeList(item.id)"><ion-icon name="trash"></ion-icon>Remove</button>
+            </ion-item-options>
+        </ion-item-sliding>
+    </ion-list>
+</ion-content>

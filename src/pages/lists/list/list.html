@@ -1,0 +1,32 @@
+<ion-header>
+    <ion-navbar [color]="selectedList.colour">
+        <ion-title>
+            <ion-icon [name]="selectedList.icon" item-start></ion-icon> {{selectedList.title}}</ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content>
+    <div *ngIf="selectedList.note" contenteditable="true" id="notes">
+        {{selectedList.note}}
+    </div>
+    <div class="bg-{{selectedList.colour}}" *ngIf="selectedList.items">
+        <ion-list reorder="true" (ionItemReorder)="reorderItems($event)">
+            <ion-item-sliding *ngFor="let item of selectedList.items; index as i">
+                <ion-item class="custom-input" [class.done]="item.done">
+                    <ion-checkbox [(ngModel)]="item.done" (click)="saveItem()"></ion-checkbox>
+                    <ion-input [(ngModel)]="item.title" [class.done]="item.done" [disabled]="item.done" (keypress)="onEditKey($event.keyCode, item)"></ion-input>
+                </ion-item>
+
+                <ion-item-options side="right">
+                    <button ion-button color="danger" (click)="removeItem(i)"><ion-icon name="trash"></ion-icon></button>
+                </ion-item-options>
+            </ion-item-sliding>
+        </ion-list>
+    </div>
+    <ion-fab right bottom #fab>
+        <button ion-fab><ion-icon name="add"></ion-icon></button>
+        <ion-fab-list side="left">
+            <ion-input [(ngModel)]="newItem" (keypress)="onNewItemKey($event.keyCode, fab)" placeholder="Add new" class="add-new-input"></ion-input>
+        </ion-fab-list>
+    </ion-fab>
+</ion-content>

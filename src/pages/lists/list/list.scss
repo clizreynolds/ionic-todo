@@ -1,0 +1,103 @@
+.notes {
+    width: 100%;
+    height: 90%;
+    border: 1px solid grey;
+}
+
+.ckbox {
+    font-size: 30px;
+    margin-right: 10px;
+}
+
+.done {
+    text-decoration: line-through;
+    color: grey;
+}
+
+.v-a {
+    height: 34px;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.wrp {
+    white-space: initial !important;
+    display: flex;
+    align-items: center;
+}
+
+.no-margin {
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+}
+
+ion-fab-list {
+    transition: all 4s;
+
+    &.fab-list-active {
+        transition: all 4s;
+    }
+}
+
+.add-new-input {
+    width: 200px;
+    border: 1px solid grey;
+    background: grey;
+    color: white;
+    border-radius: 20px;
+
+    input::placeholder {
+        /* Chrome, Firefox, Opera, Safari 10.1+ */
+        color: lightgray !important;
+        opacity: 1;
+    }
+
+    input:-ms-input-placeholder {
+        /* Internet Explorer 10-11 */
+        color: lightgray !important;
+    }
+
+    input::-ms-input-placeholder {
+        /* Microsoft Edge */
+        color: lightgray !important;
+    }
+}
+
+.custom-input {
+    border-bottom: 1px solid lightgrey;
+
+    .input-cover {
+        left: 50px !important;
+    }
+
+    .item-inner {
+        border-bottom: none !important;
+        box-shadow: none !important;
+    }
+
+    .checkbox-md {
+        margin-right: 10px !important;
+    }
+}
+
+// TODO add to variables.scss
+$colors: (l-red: #fea3aa, l-orange: #f8b88b, l-yellow: #faf884, l-green: #baed91, l-blue: #b2cefe, l-purple: #f2a2e8);
+
+@each $ke, $val in $colors {
+    .#{$ke} {
+        border-bottom: 2px dashed #{$val} !important;
+    }
+
+    .bg-#{$ke} {
+        background: #{$val} !important;
+
+        .checkbox-checked {
+            border-color: grey !important;
+            background-color: #{$val} !important;
+
+            .checkbox-inner {
+                border-color: grey !important;
+            }
+        }
+    }
+}

@@ -1,0 +1,40 @@
+.add-list {
+    font-size: 35px;
+    float: right;
+}
+
+.brdr-btm {
+    border-bottom: 1px dashed white !important;
+}
+
+.mid-title {
+    line-height: 2em;
+}
+
+.present {
+    transition: height 1s;
+    height: 50px;
+}
+
+.removed {
+    height: 0px !important;
+    transition: height 0.75s;
+}
+.hidden-on-load {
+    opacity: 0;
+}
+
+.custom-toast {
+    margin: auto;
+
+    .toast-wrapper {
+        background: none;
+        padding: 10px;
+
+        .toast-message {
+            border-radius: 20px;
+            background: grey;
+            width: 100%;
+        }
+    }
+}
