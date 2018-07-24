@@ -25,22 +25,22 @@ Ionic is a Typescript wrapper for Cordova which is a open-source mobile developm
 ## Technologies
 
 ### Developed with:
-Ionic
-Ionic Native
-HTML5
-CSS3
-Javascript ES6
-Angular
-Cordova
-Webpack
-Sass
-Typescript 
-UUID
+- Ionic
+- Ionic Native
+- HTML5
+- CSS3
+- Javascript ES6
+- Angular
+- Cordova
+- Webpack
+- Sass
+- Typescript 
+- UUID
 
 ### Tested with:
-Karma
-Jasmine
-ionic-mocks
+- Karma
+- Jasmine
+- ionic-mocks
 
 ## Challenges
 The main challenge I faced whilst playing around with Ionic is that testing code that uses native phone elements is very difficult when not actually running the app natively. These makes developing on a laptop much slower as code has to be deployed to a real phone after each change. The structure of objects received from the Android platform can vary depending on the Android version, and the phone model. Ionic also supports iOS native however I didn't have an iphone to test with.
